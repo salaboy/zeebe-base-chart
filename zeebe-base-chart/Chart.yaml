@@ -1,0 +1,6 @@
+description: Base Zeebe Project 
+icon: https://zeebe.io/img/zeebe-logo.png
+maintainers:
+- name: Team
+name: zeebe-base-chart 
+version: 0.0.1
