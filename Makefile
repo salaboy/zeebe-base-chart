@@ -1,4 +1,5 @@
 DIR := "zeebe-base-chart"
+CLUSTER_NAME := "clustername"
 NAMESPACE := "default"
 OS := $(shell uname)
 
@@ -11,9 +12,9 @@ build: clean
 	helm lint ${DIR}
 
 install: 
-	helm upgrade ${NAMESPACE} ${DIR} --install --namespace ${NAMESPACE} --debug
+	helm upgrade ${CLUSTER_NAME} ${DIR} --install --namespace ${NAMESPACE} --debug
 
 delete:
-	helm delete --purge ${NAMESPACE}  --namespace ${NAMESPACE}
+	helm delete --purge ${CLUSTER_NAME}  --namespace ${NAMESPACE}
 
 clean:
