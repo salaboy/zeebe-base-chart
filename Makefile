@@ -1,6 +1,4 @@
 DIR := "zeebe-base-chart"
-CLUSTER_NAME := "clustername"
-NAMESPACE := "default"
 OS := $(shell uname)
 
 build: clean
