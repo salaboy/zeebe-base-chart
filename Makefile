@@ -3,7 +3,7 @@ OS := $(shell uname)
 
 build: clean
 	rm -rf requirements.lock
-	helm init --client-only
+	helm init 
 	helm repo add zeebe http://helm.zeebe.io
 	helm repo update
 	helm dependency build ${DIR}
