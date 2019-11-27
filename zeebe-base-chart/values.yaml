@@ -1,31 +1,32 @@
 ##### This values are for testing in KIND.. maybe create a selector for this
-zeebe-cluster: 
-  elasticsearch: 
-    imageTag: 6.8.3 
+zeebe:
+  zeebe-cluster: 
+    elasticsearch: 
+      imageTag: 6.8.3 
 # Permit co-located instances for solitary minikube virtual machines.
-    antiAffinity: "soft"
-    labels: { "app" : "zeebe" }
+      antiAffinity: "soft"
+      labels: { "app" : "zeebe" }
 
 # Shrink default JVM heap.
-    esJavaOpts: "-Xmx128m -Xms128m"
+      esJavaOpts: "-Xmx128m -Xms128m"
 
 # Allocate smaller chunks of memory per pod.
-    resources:
-      requests:
-        cpu: "100m"
-        memory: "512M"
-      limits:
-        cpu: "1000m"
-        memory: "512M"
-
-# Request smaller persistent volumes.
-    volumeClaimTemplate:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "standard"
       resources:
         requests:
-          storage: 100M
-    extraInitContainers: |
+          cpu: "100m"
+          memory: "512M"
+        limits:
+          cpu: "1000m"
+          memory: "512M"
+
+# Request smaller persistent volumes.
+      volumeClaimTemplate:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: "standard"
+        resources:
+          requests:
+            storage: 100M
+      extraInitContainers: |
       - name: create
         image: busybox:1.28
         command: ['mkdir', '/usr/share/elasticsearch/data/nodes/']  
