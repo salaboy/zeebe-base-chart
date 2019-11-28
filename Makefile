@@ -13,6 +13,6 @@ install:
 	helm upgrade ${CLUSTER_NAME} ${DIR} --install --namespace ${NAMESPACE} --debug
 
 delete:
-	helm delete --purge ${CLUSTER_NAME}  --namespace ${NAMESPACE}
+	helm delete --purge ${CLUSTER_NAME}
 
 clean:
