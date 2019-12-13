@@ -3,16 +3,16 @@ OS := $(shell uname)
 
 build: clean
 	rm -rf requirements.lock
-	helm init --client-only
-	helm repo add zeebe http://helm.zeebe.io
-	helm repo update
-	helm dependency build ${DIR}
-	helm lint ${DIR}
+	#helm init --client-only
+	helm3 repo add zeebe http://helm.zeebe.io
+	helm3 repo update
+	helm3 dependency build ${DIR}
+	helm3 lint ${DIR}
 
 install: 
-	helm upgrade ${CLUSTER_NAME} ${DIR} --install --namespace ${NAMESPACE} --debug
+	helm3 upgrade ${CLUSTER_NAME} ${DIR} --install --namespace ${NAMESPACE} --debug
 
 delete:
-	helm delete --purge --no-hooks ${CLUSTER_NAME}
+	helm3 delete --purge --no-hooks ${CLUSTER_NAME}
 
 clean:
