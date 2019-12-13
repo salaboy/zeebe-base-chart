@@ -13,6 +13,6 @@ install:
 	helm3 upgrade ${CLUSTER_NAME} ${DIR} --install --namespace ${NAMESPACE} --debug
 
 delete:
-	helm3 delete --purge --no-hooks ${CLUSTER_NAME}
+	helm3 delete --purge --no-hooks ${CLUSTER_NAME} --namespace ${NAMESPACE}
 
 clean:
