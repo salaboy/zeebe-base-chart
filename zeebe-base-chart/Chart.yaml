@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: v1
 description: Base Zeebe Project 
 icon: https://zeebe.io/img/zeebe-logo.png
 maintainers:
